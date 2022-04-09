@@ -1,0 +1,169 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": []
+  },
+  "startNode": "entry",
+  "nodes": [
+    {
+      "id": "entry",
+      "name": "entry",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Preguntas"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-5SzDoX"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"user\",\"name\":\"Name\",\"value\":\"{{event.payload.text}}\"}",
+        "say #!builtin_text-TzQpVz",
+        "say #!builtin_text-uQll-l",
+        "say #!builtin_text-2KGCRh"
+      ]
+    },
+    {
+      "id": "c3b8b24962",
+      "name": "Servicios",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Preguntas"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-ZHnbHA"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "98673cc0bc",
+      "name": "Ubicacion",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Preguntas"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-N6kN6T"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "5431caff31",
+      "name": "Horario",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Preguntas"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-p5KWoX"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "be17caa5c7",
+      "name": "Telefonos",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Preguntas"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-25VJlo"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "06465c69a7",
+      "name": "Contacto",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "Preguntas"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-C-HaSE"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "64edce8b43",
+      "name": "Preguntas",
+      "next": [
+        {
+          "condition": "user.Opc==='1'",
+          "conditionType": "raw",
+          "node": "Servicios"
+        },
+        {
+          "condition": "user.Opc==='2'",
+          "conditionType": "raw",
+          "node": "Ubicacion"
+        },
+        {
+          "condition": "user.Opc==='3'",
+          "conditionType": "raw",
+          "node": "Horario"
+        },
+        {
+          "condition": "user.Opc==='4'",
+          "conditionType": "raw",
+          "node": "Telefonos"
+        },
+        {
+          "condition": "user.Opc==='5'",
+          "conditionType": "raw",
+          "node": "Contacto"
+        },
+        {
+          "condition": "user.Opc==='6'",
+          "conditionType": "raw",
+          "node": "Salir"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-ZQp5PD"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"user\",\"name\":\"Opc\",\"value\":\"{{event.payload.text}}\"}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "ed6f7e91a3",
+      "name": "Salir",
+      "next": [
+        {
+          "condition": "true",
+          "conditionType": "always",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-jNlpR_"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}
